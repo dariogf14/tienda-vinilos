@@ -15,9 +15,20 @@ import {
 } from "./filtros.js";
 
 import {
+  abrirModal,
   configurarCierreModales,
-  mostrarModalDetalles
+  mostrarModalDetalles,
+  cerrarModal
 } from "./modales.js";
+
+import {
+  buscarUsuarioPorCredenciales,
+  rellenarFormularioPerfil,
+  obtenerDatosFormularioPerfil,
+  validarDatosPerfil,
+  mostrarFormularioLogin,
+  mostrarFormularioPerfil
+} from "./usuarios.js";
 
 const state = {
   productos: [],
@@ -56,8 +67,10 @@ async function iniciarApp() {
 
     configurarEventosFiltros();
     configurarEventosProductos();
+    configurarEventosUsuario();
     configurarCierreModales();
 
+    actualizarInterfazUsuario();
     pintarProductosFiltrados();
 
     console.log("Datos cargados correctamente:", state);
@@ -103,6 +116,80 @@ function configurarEventosProductos() {
   });
 }
 
+function configurarEventosUsuario() {
+  const btnUsuario = document.querySelector("#btnUsuario");
+  const formLogin = document.querySelector("#formLogin");
+  const formPerfil = document.querySelector("#formPerfil");
+
+  btnUsuario.addEventListener("click", () => {
+    if (state.usuarioAutenticado) {
+      mostrarFormularioPerfil();
+      rellenarFormularioPerfil(state.usuarioAutenticado);
+    } else {
+      mostrarFormularioLogin();
+    }
+
+    abrirModal("modalUsuario");
+  });
+
+  formLogin.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+
+    const email = document.querySelector("#loginEmail").value.trim();
+    const password = document.querySelector("#loginPassword").value.trim();
+    const mensajeLogin = document.querySelector("#mensajeLogin");
+
+    if (email === "" || password === "") {
+      mensajeLogin.textContent = "Debes introducir email y contraseña.";
+      return;
+    }
+
+    const usuarioEncontrado = buscarUsuarioPorCredenciales(
+      state.usuarios,
+      email,
+      password
+    );
+
+    if (!usuarioEncontrado) {
+      mensajeLogin.textContent = "Email o contraseña incorrectos.";
+      return;
+    }
+
+    state.usuarioAutenticado = usuarioEncontrado;
+
+    formLogin.reset();
+    cerrarModal("modalUsuario");
+
+    actualizarInterfazUsuario();
+    pintarProductosFiltrados();
+
+    console.log("Usuario autenticado:", state.usuarioAutenticado);
+  });
+
+  formPerfil.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+
+    const mensajePerfil = document.querySelector("#mensajePerfil");
+    const datosActualizados = obtenerDatosFormularioPerfil(
+      state.usuarioAutenticado
+    );
+
+    const errorValidacion = validarDatosPerfil(datosActualizados);
+
+    if (errorValidacion !== "") {
+      mensajePerfil.textContent = errorValidacion;
+      return;
+    }
+
+    state.usuarioAutenticado = datosActualizados;
+
+    actualizarInterfazUsuario();
+    cerrarModal("modalUsuario");
+
+    console.log("Datos actualizados del usuario:", datosActualizados);
+  });
+}
+
 function pintarProductosFiltrados() {
   const productosFiltrados = filtrarProductos(state.productos, state.filtros);
 
@@ -111,6 +198,19 @@ function pintarProductosFiltrados() {
   actualizarMensajeEstado(
     `${productosFiltrados.length} vinilo(s) encontrado(s)`
   );
+}
+
+function actualizarInterfazUsuario() {
+  const btnUsuario = document.querySelector("#btnUsuario");
+  const btnCarrito = document.querySelector("#btnCarrito");
+
+  if (state.usuarioAutenticado) {
+    btnUsuario.textContent = `Hola, ${state.usuarioAutenticado.nombre}`;
+    btnCarrito.disabled = false;
+  } else {
+    btnUsuario.textContent = "Usuario";
+    btnCarrito.disabled = true;
+  }
 }
 
 function buscarProductoPorId(idProducto) {
