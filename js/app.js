@@ -30,6 +30,16 @@ import {
   mostrarFormularioPerfil
 } from "./usuarios.js";
 
+import {
+  agregarProductoAlCarrito,
+  incrementarCantidad,
+  decrementarCantidad,
+  vaciarCarritoUsuario,
+  obtenerCarritoUsuario,
+  calcularCantidadProductos,
+  renderizarCarrito
+} from "./carrito.js";
+
 const state = {
   productos: [],
   categorias: [],
@@ -68,6 +78,7 @@ async function iniciarApp() {
     configurarEventosFiltros();
     configurarEventosProductos();
     configurarEventosUsuario();
+    configurarEventosCarrito();
     configurarCierreModales();
 
     actualizarInterfazUsuario();
@@ -112,6 +123,29 @@ function configurarEventosProductos() {
       if (producto) {
         mostrarModalDetalles(producto);
       }
+    }
+
+    if (evento.target.classList.contains("btn-carrito")) {
+      const idProducto = Number(evento.target.dataset.id);
+      const producto = buscarProductoPorId(idProducto);
+
+      if (!state.usuarioAutenticado) {
+        return;
+      }
+
+      if (!producto || producto.stock <= 0) {
+        return;
+      }
+
+      state.carrito = agregarProductoAlCarrito(
+        state.carrito,
+        producto,
+        state.usuarioAutenticado
+      );
+
+      actualizarContadorCarrito();
+
+      console.log("Carrito actualizado:", state.carrito);
     }
   });
 }
@@ -162,6 +196,7 @@ function configurarEventosUsuario() {
 
     actualizarInterfazUsuario();
     pintarProductosFiltrados();
+    actualizarContadorCarrito();
 
     console.log("Usuario autenticado:", state.usuarioAutenticado);
   });
@@ -190,6 +225,67 @@ function configurarEventosUsuario() {
   });
 }
 
+function configurarEventosCarrito() {
+  const btnCarrito = document.querySelector("#btnCarrito");
+  const contenidoCarrito = document.querySelector("#contenidoCarrito");
+  const btnVaciarCarrito = document.querySelector("#btnVaciarCarrito");
+
+  btnCarrito.addEventListener("click", () => {
+    if (!state.usuarioAutenticado) {
+      return;
+    }
+
+    pintarCarritoUsuario();
+    abrirModal("modalCarrito");
+  });
+
+  contenidoCarrito.addEventListener("click", (evento) => {
+    const accion = evento.target.dataset.action;
+    const idProducto = Number(evento.target.dataset.id);
+
+    if (!accion || !idProducto || !state.usuarioAutenticado) {
+      return;
+    }
+
+    if (accion === "incrementar") {
+      state.carrito = incrementarCantidad(
+        state.carrito,
+        idProducto,
+        state.usuarioAutenticado.id
+      );
+    }
+
+    if (accion === "decrementar") {
+      state.carrito = decrementarCantidad(
+        state.carrito,
+        idProducto,
+        state.usuarioAutenticado.id
+      );
+    }
+
+    pintarCarritoUsuario();
+    actualizarContadorCarrito();
+
+    console.log("Carrito actualizado:", state.carrito);
+  });
+
+  btnVaciarCarrito.addEventListener("click", () => {
+    if (!state.usuarioAutenticado) {
+      return;
+    }
+
+    state.carrito = vaciarCarritoUsuario(
+      state.carrito,
+      state.usuarioAutenticado.id
+    );
+
+    pintarCarritoUsuario();
+    actualizarContadorCarrito();
+
+    console.log("Carrito vaciado:", state.carrito);
+  });
+}
+
 function pintarProductosFiltrados() {
   const productosFiltrados = filtrarProductos(state.productos, state.filtros);
 
@@ -198,6 +294,15 @@ function pintarProductosFiltrados() {
   actualizarMensajeEstado(
     `${productosFiltrados.length} vinilo(s) encontrado(s)`
   );
+}
+
+function pintarCarritoUsuario() {
+  const carritoUsuario = obtenerCarritoUsuario(
+    state.carrito,
+    state.usuarioAutenticado.id
+  );
+
+  renderizarCarrito(carritoUsuario);
 }
 
 function actualizarInterfazUsuario() {
@@ -211,6 +316,23 @@ function actualizarInterfazUsuario() {
     btnUsuario.textContent = "Usuario";
     btnCarrito.disabled = true;
   }
+}
+
+function actualizarContadorCarrito() {
+  const contadorCarrito = document.querySelector("#contadorCarrito");
+
+  if (!state.usuarioAutenticado) {
+    contadorCarrito.textContent = "0";
+    return;
+  }
+
+  const carritoUsuario = obtenerCarritoUsuario(
+    state.carrito,
+    state.usuarioAutenticado.id
+  );
+
+  const cantidadProductos = calcularCantidadProductos(carritoUsuario);
+  contadorCarrito.textContent = cantidadProductos;
 }
 
 function buscarProductoPorId(idProducto) {
