@@ -259,11 +259,17 @@ function configurarEventosCarrito() {
     }
 
     if (accion === "incrementar") {
-      state.carrito = incrementarCantidad(
+    const producto = buscarProductoPorId(idProducto);
+
+    if (!producto) {
+        return;
+    }
+
+    state.carrito = incrementarCantidad(
         state.carrito,
-        idProducto,
+        producto,
         state.usuarioAutenticado.id
-      );
+    );
     }
 
     if (accion === "decrementar") {

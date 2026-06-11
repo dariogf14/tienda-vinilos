@@ -4,8 +4,18 @@ export function agregarProductoAlCarrito(carrito, producto, usuario) {
   });
 
   if (productoEnCarrito) {
+    if (productoEnCarrito.cantidad >= producto.stock) {
+      alert("No puedes añadir más unidades. Stock máximo alcanzado.");
+      return carrito;
+    }
+
     productoEnCarrito.cantidad += 1;
   } else {
+    if (producto.stock <= 0) {
+      alert("Este producto no tiene stock disponible.");
+      return carrito;
+    }
+
     carrito.push({
       producto_id: producto.id,
       usuario_id: usuario.id,
@@ -18,12 +28,17 @@ export function agregarProductoAlCarrito(carrito, producto, usuario) {
   return carrito;
 }
 
-export function incrementarCantidad(carrito, idProducto, idUsuario) {
+export function incrementarCantidad(carrito, producto, idUsuario) {
   const productoEnCarrito = carrito.find((item) => {
-    return item.producto_id === idProducto && item.usuario_id === idUsuario;
+    return item.producto_id === producto.id && item.usuario_id === idUsuario;
   });
 
   if (productoEnCarrito) {
+    if (productoEnCarrito.cantidad >= producto.stock) {
+      alert("No puedes añadir más unidades. Stock máximo alcanzado.");
+      return carrito;
+    }
+
     productoEnCarrito.cantidad += 1;
   }
 
