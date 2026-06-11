@@ -35,12 +35,22 @@ export function configurarCierreModales() {
   });
 }
 
-export function mostrarModalDetalles(producto) {
+export function mostrarModalDetalles(
+  producto,
+  moneda = "EUR",
+  tasasCambio = { EUR: 1 }
+) {
   const contenidoModal = document.querySelector("#contenidoModalDetalles");
 
   const caracteristicasHTML = Object.entries(producto.caracteristicas)
     .map(([clave, valor]) => `<li><strong>${clave}:</strong> ${valor}</li>`)
     .join("");
+
+  const precioFormateado = formatearPrecioModal(
+    producto.precio,
+    moneda,
+    tasasCambio
+  );
 
   contenidoModal.innerHTML = `
     <div class="modal-product">
@@ -55,7 +65,7 @@ export function mostrarModalDetalles(producto) {
 
         <p><strong>Artista:</strong> ${producto.marca_nombre}</p>
         <p><strong>Género:</strong> ${producto.categoria_nombre}</p>
-        <p><strong>Precio:</strong> ${producto.precio.toFixed(2)} €</p>
+        <p><strong>Precio:</strong> ${precioFormateado}</p>
         <p><strong>Stock:</strong> ${producto.stock}</p>
 
         <p>
@@ -72,4 +82,14 @@ export function mostrarModalDetalles(producto) {
   `;
 
   abrirModal("modalDetalles");
+}
+
+function formatearPrecioModal(precioBaseEUR, moneda, tasasCambio) {
+  const tasa = tasasCambio[moneda] || 1;
+  const precioConvertido = precioBaseEUR * tasa;
+
+  return new Intl.NumberFormat("es-ES", {
+    style: "currency",
+    currency: moneda
+  }).format(precioConvertido);
 }

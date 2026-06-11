@@ -132,7 +132,7 @@ function configurarEventosProductos() {
       const producto = buscarProductoPorId(idProducto);
 
       if (producto) {
-        mostrarModalDetalles(producto);
+        mostrarModalDetalles(producto, state.moneda, state.tasasCambio);
       }
     }
 
