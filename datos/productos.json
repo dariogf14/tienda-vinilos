@@ -17,6 +17,22 @@
   },
   {
     "id": 2,
+    "nombre": "Sheer Heart Attack",
+    "imagen": "sheer_heart_attack.webp",
+    "descripcion": "Álbum de Queen publicado en 1974, con un sonido rock más directo y enérgico.",
+    "precio": 28.99,
+    "stock": 6,
+    "marca_id": 1,
+    "categoria_id": 1,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1974",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 3,
     "nombre": "News of the World",
     "imagen": "news_of_the_world.jpg",
     "descripcion": "Disco de Queen publicado en 1977, con algunos de sus temas más conocidos.",
@@ -32,7 +48,7 @@
     }
   },
   {
-    "id": 3,
+    "id": 4,
     "nombre": "Rust in Peace",
     "imagen": "rust_in_peace.jpg",
     "descripcion": "Álbum de Megadeth publicado en 1990, referente del thrash metal.",
@@ -48,7 +64,7 @@
     }
   },
   {
-    "id": 4,
+    "id": 5,
     "nombre": "Countdown to Extinction",
     "imagen": "countdown_to_extinction.jpg",
     "descripcion": "Uno de los discos más conocidos de Megadeth, publicado en 1992.",
@@ -64,9 +80,25 @@
     }
   },
   {
-    "id": 5,
+    "id": 6,
+    "nombre": "Megadeth",
+    "imagen": "megadeth.webp",
+    "descripcion": "Edición de Megadeth para coleccionistas, orientada a seguidores del thrash metal.",
+    "precio": 27.99,
+    "stock": 5,
+    "marca_id": 2,
+    "categoria_id": 3,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1985",
+      "Estado": "Nuevo",
+      "Edición": "Coleccionista"
+    }
+  },
+  {
+    "id": 7,
     "nombre": "Significant Other",
-    "imagen": "significant_other.jpg",
+    "imagen": "significant_other.webp",
     "descripcion": "Álbum de Limp Bizkit publicado en 1999, representativo del nu metal de finales de los noventa.",
     "precio": 27.99,
     "stock": 7,
@@ -80,9 +112,9 @@
     }
   },
   {
-    "id": 6,
+    "id": 8,
     "nombre": "Hybrid Theory",
-    "imagen": "hybrid_theory.jpg",
+    "imagen": "hybrid_theory.webp",
     "descripcion": "Primer álbum de estudio de Linkin Park, publicado en el año 2000.",
     "precio": 30.99,
     "stock": 10,
@@ -96,9 +128,9 @@
     }
   },
   {
-    "id": 7,
+    "id": 9,
     "nombre": "Meteora",
-    "imagen": "meteora.jpg",
+    "imagen": "meteora.webp",
     "descripcion": "Segundo álbum de Linkin Park, publicado en 2003, con sonido característico de nu metal y rock alternativo.",
     "precio": 29.5,
     "stock": 0,
@@ -112,14 +144,46 @@
     }
   },
   {
-    "id": 8,
+    "id": 10,
+    "nombre": "From Zero",
+    "imagen": "from_zero.jpg",
+    "descripcion": "Álbum de Linkin Park publicado en 2024, con una mezcla de rock alternativo y sonidos modernos.",
+    "precio": 33.99,
+    "stock": 8,
+    "marca_id": 4,
+    "categoria_id": 12,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2024",
+      "Estado": "Nuevo",
+      "Edición": "Estándar"
+    }
+  },
+  {
+    "id": 11,
+    "nombre": "Rock Transgresivo",
+    "imagen": "rock_transgresivo.jpg",
+    "descripcion": "Primer álbum de Extremoduro, publicado en 1989, con el sonido característico del rock transgresivo.",
+    "precio": 24.99,
+    "stock": 5,
+    "marca_id": 5,
+    "categoria_id": 8,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1989",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 12,
     "nombre": "Agila",
     "imagen": "agila.jpg",
     "descripcion": "Disco de Extremoduro publicado en 1996, una referencia del rock español.",
     "precio": 26.99,
     "stock": 3,
     "marca_id": 5,
-    "categoria_id": 5,
+    "categoria_id": 8,
     "caracteristicas": {
       "Formato": "LP",
       "Año": "1996",
@@ -128,7 +192,39 @@
     }
   },
   {
-    "id": 9,
+    "id": 13,
+    "nombre": "Yo, minoría absoluta",
+    "imagen": "yo_minoria_absoluta.avif",   
+    "descripcion": "Álbum de Extremoduro publicado en 2002, uno de los trabajos más conocidos de la banda.",
+    "precio": 27.99,
+    "stock": 6,
+    "marca_id": 5,
+    "categoria_id": 8,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2002",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 14,
+    "nombre": "La Ley Innata",
+    "imagen": "la_ley_innata.webp",
+    "descripcion": "Álbum conceptual de Extremoduro publicado en 2008, dividido en varios movimientos musicales.",
+    "precio": 29.99,
+    "stock": 5,
+    "marca_id": 5,
+    "categoria_id": 8,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2008",
+      "Estado": "Nuevo",
+      "Edición": "Doble vinilo"
+    }
+  },
+  {
+    "id": 15,
     "nombre": "Antes de que cuente diez",
     "imagen": "antes_de_que_cuente_diez.jpg",
     "descripcion": "Álbum de Fito y Fitipaldis publicado en 2009, dentro del rock español.",
@@ -144,23 +240,23 @@
     }
   },
   {
-    "id": 10,
-    "nombre": "La noche",
-    "imagen": "la_noche.jpg",
-    "descripcion": "Álbum de Arde Bogotá con sonido de rock alternativo e indie rock.",
-    "precio": 24.99,
+    "id": 16,
+    "nombre": "Cowboys de la A3",
+    "imagen": "cowboys_de_la_a3.jpg",
+    "descripcion": "Álbum de Arde Bogotá publicado en 2023, con sonido de rock alternativo e indie rock.",
+    "precio": 26.99,
     "stock": 6,
     "marca_id": 7,
     "categoria_id": 6,
     "caracteristicas": {
       "Formato": "LP",
-      "Año": "2021",
+      "Año": "2023",
       "Estado": "Nuevo",
       "Edición": "Estándar"
     }
   },
   {
-    "id": 11,
+    "id": 17,
     "nombre": "The Final Countdown",
     "imagen": "the_final_countdown.jpg",
     "descripcion": "Álbum de Europe publicado en 1986, uno de los discos más conocidos del hard rock melódico.",
@@ -173,6 +269,246 @@
       "Año": "1986",
       "Estado": "Nuevo",
       "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 18,
+    "nombre": "London Calling",
+    "imagen": "london_calling.png",
+    "descripcion": "Álbum de The Clash publicado en 1979, considerado uno de los discos más importantes del punk rock.",
+    "precio": 30.99,
+    "stock": 7,
+    "marca_id": 9,
+    "categoria_id": 7,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1979",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 19,
+    "nombre": "Thriller",
+    "imagen": "thriller.jpg",
+    "descripcion": "Álbum de Michael Jackson publicado en 1982, uno de los discos más vendidos de la historia.",
+    "precio": 34.99,
+    "stock": 8,
+    "marca_id": 10,
+    "categoria_id": 9,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1982",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 20,
+    "nombre": "Devil Came to Me",
+    "imagen": "devil_came_to_me.jpg",
+    "descripcion": "Álbum de Dover publicado en 1997, uno de los discos más conocidos del rock alternativo español.",
+    "precio": 25.99,
+    "stock": 6,
+    "marca_id": 11,
+    "categoria_id": 12,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1997",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 21,
+    "nombre": "Paranoid",
+    "imagen": "paranoid.webp",
+    "descripcion": "Álbum de Black Sabbath publicado en 1970, considerado una referencia del heavy metal.",
+    "precio": 31.99,
+    "stock": 7,
+    "marca_id": 12,
+    "categoria_id": 11,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1970",
+      "Estado": "Nuevo",
+      "Edición": "Reedición 180g"
+    }
+  },
+  {
+    "id": 22,
+    "nombre": "Born in the U.S.A.",
+    "imagen": "born_in_the_usa.jpg",
+    "descripcion": "Álbum de Bruce Springsteen publicado en 1984, con un sonido rock muy reconocible.",
+    "precio": 29.99,
+    "stock": 6,
+    "marca_id": 13,
+    "categoria_id": 1,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1984",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 23,
+    "nombre": "Vinagre y rosas",
+    "imagen": "vinagre_y_rosas.jpg",
+    "descripcion": "Álbum de Joaquín Sabina publicado en 2009, con letras características del cantautor.",
+    "precio": 24.99,
+    "stock": 5,
+    "marca_id": 14,
+    "categoria_id": 5,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2009",
+      "Estado": "Nuevo",
+      "Edición": "Vinilo negro"
+    }
+  },
+  {
+    "id": 24,
+    "nombre": "Unknown Pleasures",
+    "imagen": "unknown_pleasures.webp",
+    "descripcion": "Álbum de Joy Division publicado en 1979, referente del post-punk.",
+    "precio": 30.99,
+    "stock": 7,
+    "marca_id": 15,
+    "categoria_id": 10,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1979",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 25,
+    "nombre": "Appetite for Destruction",
+    "imagen": "appetite_for_destruction.jpg",
+    "descripcion": "Álbum debut de Guns N' Roses publicado en 1987, uno de los discos más conocidos del hard rock.",
+    "precio": 32.99,
+    "stock": 8,
+    "marca_id": 16,
+    "categoria_id": 2,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1987",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 26,
+    "nombre": "Ilegales",
+    "imagen": "ilegales.jpg",
+    "descripcion": "Álbum de Ilegales con sonido directo y actitud propia del rock español.",
+    "precio": 24.99,
+    "stock": 5,
+    "marca_id": 17,
+    "categoria_id": 5,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1983",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 27,
+    "nombre": "Rage Against the Machine",
+    "imagen": "rage_against_the_machine.webp",
+    "descripcion": "Álbum debut de Rage Against the Machine publicado en 1992, con mezcla de rap, metal y rock alternativo.",
+    "precio": 31.99,
+    "stock": 6,
+    "marca_id": 18,
+    "categoria_id": 13,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1992",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 28,
+    "nombre": "Ants From Up There",
+    "imagen": "ants_from_up_there.jpg",
+    "descripcion": "Álbum de Black Country, New Road publicado en 2022, con un sonido entre art rock e indie rock.",
+    "precio": 33.99,
+    "stock": 4,
+    "marca_id": 19,
+    "categoria_id": 14,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2022",
+      "Estado": "Nuevo",
+      "Edición": "Doble vinilo"
+    }
+  },
+  {
+    "id": 29,
+    "nombre": "Franz Ferdinand",
+    "imagen": "franz_ferdinand.webp",
+    "descripcion": "Álbum debut de Franz Ferdinand publicado en 2004, con sonido indie rock y post-punk revival.",
+    "precio": 27.99,
+    "stock": 7,
+    "marca_id": 20,
+    "categoria_id": 6,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2004",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 30,
+    "nombre": "Tonight",
+    "imagen": "tonight.webp",
+    "descripcion": "Álbum de Franz Ferdinand publicado en 2009, con un sonido más bailable dentro del indie rock.",
+    "precio": 26.99,
+    "stock": 5,
+    "marca_id": 20,
+    "categoria_id": 6,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2009",
+      "Estado": "Nuevo",
+      "Edición": "Vinilo negro"
+    }
+  },
+  {
+    "id": 31,
+    "nombre": "Get Born",
+    "imagen": "get_born.webp",
+    "descripcion": "Álbum debut de Jet publicado en 2003, con sonido garage rock y rock clásico.",
+    "precio": 25.99,
+    "stock": 6,
+    "marca_id": 21,
+    "categoria_id": 15,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2003",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 32,
+    "nombre": "Never Enough",
+    "imagen": "never_enough.png",
+    "descripcion": "Álbum de Turnstile publicado en 2025, con sonido hardcore punk y rock alternativo.",
+    "precio": 32.99,
+    "stock": 6,
+    "marca_id": 22,
+    "categoria_id": 16,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2025",
+      "Estado": "Nuevo",
+      "Edición": "Estándar"
     }
   }
 ]

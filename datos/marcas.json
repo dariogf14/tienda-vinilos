@@ -30,5 +30,61 @@
   {
     "id": 8,
     "nombre": "Europe"
+  },
+  {
+    "id": 9,
+    "nombre": "The Clash"
+  },
+  {
+    "id": 10,
+    "nombre": "Michael Jackson"
+  },
+  {
+    "id": 11,
+    "nombre": "Dover"
+  },
+  {
+    "id": 12,
+    "nombre": "Black Sabbath"
+  },
+  {
+    "id": 13,
+    "nombre": "Bruce Springsteen"
+  },
+  {
+    "id": 14,
+    "nombre": "Joaquín Sabina"
+  },
+  {
+    "id": 15,
+    "nombre": "Joy Division"
+  },
+  {
+    "id": 16,
+    "nombre": "Guns N' Roses"
+  },
+  {
+    "id": 17,
+    "nombre": "Ilegales"
+  },
+  {
+    "id": 18,
+    "nombre": "Rage Against the Machine"
+  },
+  {
+    "id": 19,
+    "nombre": "Black Country, New Road"
+  },
+  {
+    "id": 20,
+    "nombre": "Franz Ferdinand"
+  },
+  {
+    "id": 21,
+    "nombre": "Jet"
+  },
+  {
+    "id": 22,
+    "nombre": "Turnstile"
   }
 ]

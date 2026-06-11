@@ -22,5 +22,45 @@
   {
     "id": 6,
     "nombre": "Indie Rock"
+  },
+  {
+    "id": 7,
+    "nombre": "Punk Rock"
+  },
+  {
+    "id": 8,
+    "nombre": "Rock Transgresivo"
+  },
+  {
+    "id": 9,
+    "nombre": "Pop"
+  },
+  {
+    "id": 10,
+    "nombre": "Post-Punk"
+  },
+  {
+    "id": 11,
+    "nombre": "Heavy Metal"
+  },
+  {
+    "id": 12,
+    "nombre": "Rock Alternativo"
+  },
+  {
+    "id": 13,
+    "nombre": "Rap Metal"
+  },
+  {
+    "id": 14,
+    "nombre": "Art Rock"
+  },
+  {
+    "id": 15,
+    "nombre": "Garage Rock"
+  },
+  {
+    "id": 16,
+    "nombre": "Hardcore Punk"
   }
 ]
