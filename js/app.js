@@ -14,6 +14,11 @@ import {
   filtrarProductos
 } from "./filtros.js";
 
+import {
+  configurarCierreModales,
+  mostrarModalDetalles
+} from "./modales.js";
+
 const state = {
   productos: [],
   categorias: [],
@@ -50,6 +55,8 @@ async function iniciarApp() {
     rellenarSelectMarcas(state.marcas);
 
     configurarEventosFiltros();
+    configurarEventosProductos();
+    configurarCierreModales();
 
     pintarProductosFiltrados();
 
@@ -81,6 +88,21 @@ function configurarEventosFiltros() {
   });
 }
 
+function configurarEventosProductos() {
+  const contenedorProductos = document.querySelector("#contenedorProductos");
+
+  contenedorProductos.addEventListener("click", (evento) => {
+    if (evento.target.classList.contains("btn-detalles")) {
+      const idProducto = Number(evento.target.dataset.id);
+      const producto = buscarProductoPorId(idProducto);
+
+      if (producto) {
+        mostrarModalDetalles(producto);
+      }
+    }
+  });
+}
+
 function pintarProductosFiltrados() {
   const productosFiltrados = filtrarProductos(state.productos, state.filtros);
 
@@ -89,4 +111,8 @@ function pintarProductosFiltrados() {
   actualizarMensajeEstado(
     `${productosFiltrados.length} vinilo(s) encontrado(s)`
   );
+}
+
+function buscarProductoPorId(idProducto) {
+  return state.productos.find((producto) => producto.id === idProducto);
 }
