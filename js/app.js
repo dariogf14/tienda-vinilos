@@ -8,13 +8,24 @@ import {
   actualizarMensajeEstado
 } from "./productos.js";
 
+import {
+  rellenarSelectCategorias,
+  rellenarSelectMarcas,
+  filtrarProductos
+} from "./filtros.js";
+
 const state = {
   productos: [],
   categorias: [],
   marcas: [],
   usuarios: [],
   usuarioAutenticado: null,
-  carrito: []
+  carrito: [],
+  filtros: {
+    texto: "",
+    categoria: "",
+    marca: ""
+  }
 };
 
 document.addEventListener("DOMContentLoaded", iniciarApp);
@@ -35,12 +46,47 @@ async function iniciarApp() {
       datos.marcas
     );
 
-    renderizarProductos(state.productos, state.usuarioAutenticado);
-    actualizarMensajeEstado(`${state.productos.length} vinilos encontrados`);
+    rellenarSelectCategorias(state.categorias);
+    rellenarSelectMarcas(state.marcas);
+
+    configurarEventosFiltros();
+
+    pintarProductosFiltrados();
 
     console.log("Datos cargados correctamente:", state);
   } catch (error) {
     console.error(error);
     actualizarMensajeEstado("No se pudieron cargar los productos.");
   }
+}
+
+function configurarEventosFiltros() {
+  const buscador = document.querySelector("#buscador");
+  const filtroCategoria = document.querySelector("#filtroCategoria");
+  const filtroMarca = document.querySelector("#filtroMarca");
+
+  buscador.addEventListener("input", () => {
+    state.filtros.texto = buscador.value;
+    pintarProductosFiltrados();
+  });
+
+  filtroCategoria.addEventListener("change", () => {
+    state.filtros.categoria = filtroCategoria.value;
+    pintarProductosFiltrados();
+  });
+
+  filtroMarca.addEventListener("change", () => {
+    state.filtros.marca = filtroMarca.value;
+    pintarProductosFiltrados();
+  });
+}
+
+function pintarProductosFiltrados() {
+  const productosFiltrados = filtrarProductos(state.productos, state.filtros);
+
+  renderizarProductos(productosFiltrados, state.usuarioAutenticado);
+
+  actualizarMensajeEstado(
+    `${productosFiltrados.length} vinilo(s) encontrado(s)`
+  );
 }
