@@ -40,6 +40,10 @@ import {
   renderizarCarrito
 } from "./carrito.js";
 
+import {
+  obtenerTasasCambio
+} from "./api.js";
+
 const state = {
   productos: [],
   categorias: [],
@@ -51,6 +55,10 @@ const state = {
     texto: "",
     categoria: "",
     marca: ""
+  },
+  moneda: "EUR",
+  tasasCambio: {
+    EUR: 1
   }
 };
 
@@ -72,6 +80,8 @@ async function iniciarApp() {
       datos.marcas
     );
 
+    state.tasasCambio = await obtenerTasasCambio();
+
     rellenarSelectCategorias(state.categorias);
     rellenarSelectMarcas(state.marcas);
 
@@ -79,6 +89,7 @@ async function iniciarApp() {
     configurarEventosProductos();
     configurarEventosUsuario();
     configurarEventosCarrito();
+    configurarEventosMoneda();
     configurarCierreModales();
 
     actualizarInterfazUsuario();
@@ -286,10 +297,29 @@ function configurarEventosCarrito() {
   });
 }
 
+function configurarEventosMoneda() {
+  const selectMoneda = document.querySelector("#moneda");
+
+  selectMoneda.addEventListener("change", () => {
+    state.moneda = selectMoneda.value;
+
+    pintarProductosFiltrados();
+
+    if (state.usuarioAutenticado) {
+      pintarCarritoUsuario();
+    }
+  });
+}
+
 function pintarProductosFiltrados() {
   const productosFiltrados = filtrarProductos(state.productos, state.filtros);
 
-  renderizarProductos(productosFiltrados, state.usuarioAutenticado);
+  renderizarProductos(
+    productosFiltrados,
+    state.usuarioAutenticado,
+    state.moneda,
+    state.tasasCambio
+  );
 
   actualizarMensajeEstado(
     `${productosFiltrados.length} vinilo(s) encontrado(s)`
@@ -302,7 +332,7 @@ function pintarCarritoUsuario() {
     state.usuarioAutenticado.id
   );
 
-  renderizarCarrito(carritoUsuario);
+  renderizarCarrito(carritoUsuario, state.moneda, state.tasasCambio);
 }
 
 function actualizarInterfazUsuario() {

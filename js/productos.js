@@ -1,4 +1,9 @@
-export function renderizarProductos(productos, usuarioAutenticado = null) {
+export function renderizarProductos(
+  productos,
+  usuarioAutenticado = null,
+  moneda = "EUR",
+  tasasCambio = { EUR: 1 }
+) {
   const contenedorProductos = document.querySelector("#contenedorProductos");
 
   contenedorProductos.innerHTML = "";
@@ -11,16 +16,27 @@ export function renderizarProductos(productos, usuarioAutenticado = null) {
   }
 
   productos.forEach((producto) => {
-    const tarjeta = crearTarjetaProducto(producto, usuarioAutenticado);
+    const tarjeta = crearTarjetaProducto(
+      producto,
+      usuarioAutenticado,
+      moneda,
+      tasasCambio
+    );
+
     contenedorProductos.appendChild(tarjeta);
   });
 }
 
-function crearTarjetaProducto(producto, usuarioAutenticado) {
+function crearTarjetaProducto(producto, usuarioAutenticado, moneda, tasasCambio) {
   const tarjeta = document.createElement("article");
   tarjeta.classList.add("product-card");
 
   const botonCarritoDeshabilitado = !usuarioAutenticado || producto.stock <= 0;
+  const precioFormateado = formatearPrecioProducto(
+    producto.precio,
+    moneda,
+    tasasCambio
+  );
 
   tarjeta.innerHTML = `
     <img
@@ -38,7 +54,7 @@ function crearTarjetaProducto(producto, usuarioAutenticado) {
       </p>
 
       <p class="product-card__price">
-        ${producto.precio.toFixed(2)} €
+        ${precioFormateado}
       </p>
 
       <p class="product-card__stock">
@@ -67,6 +83,16 @@ function crearTarjetaProducto(producto, usuarioAutenticado) {
   `;
 
   return tarjeta;
+}
+
+function formatearPrecioProducto(precioBaseEUR, moneda, tasasCambio) {
+  const tasa = tasasCambio[moneda] || 1;
+  const precioConvertido = precioBaseEUR * tasa;
+
+  return new Intl.NumberFormat("es-ES", {
+    style: "currency",
+    currency: moneda
+  }).format(precioConvertido);
 }
 
 export function actualizarMensajeEstado(texto) {

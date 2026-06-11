@@ -62,7 +62,11 @@ export function calcularCantidadProductos(carritoUsuario) {
   }, 0);
 }
 
-export function renderizarCarrito(carritoUsuario) {
+export function renderizarCarrito(
+  carritoUsuario,
+  moneda = "EUR",
+  tasasCambio = { EUR: 1 }
+) {
   const contenidoCarrito = document.querySelector("#contenidoCarrito");
   const totalCarrito = document.querySelector("#totalCarrito");
 
@@ -73,7 +77,7 @@ export function renderizarCarrito(carritoUsuario) {
       <p>El carrito está vacío.</p>
     `;
 
-    totalCarrito.textContent = "0.00 €";
+    totalCarrito.textContent = formatearPrecioCarrito(0, moneda, tasasCambio);
     return;
   }
 
@@ -84,9 +88,9 @@ export function renderizarCarrito(carritoUsuario) {
     itemHTML.innerHTML = `
       <div>
         <h3>${item.nombre}</h3>
-        <p>Precio unidad: ${item.precio.toFixed(2)} €</p>
+        <p>Precio unidad: ${formatearPrecioCarrito(item.precio, moneda, tasasCambio)}</p>
         <p>Cantidad: ${item.cantidad}</p>
-        <p>Subtotal: ${(item.precio * item.cantidad).toFixed(2)} €</p>
+        <p>Subtotal: ${formatearPrecioCarrito(item.precio * item.cantidad, moneda, tasasCambio)}</p>
       </div>
 
       <div class="cart-item__actions">
@@ -114,5 +118,15 @@ export function renderizarCarrito(carritoUsuario) {
   });
 
   const total = calcularTotalCarrito(carritoUsuario);
-  totalCarrito.textContent = `${total.toFixed(2)} €`;
+  totalCarrito.textContent = formatearPrecioCarrito(total, moneda, tasasCambio);
+}
+
+function formatearPrecioCarrito(precioBaseEUR, moneda, tasasCambio) {
+  const tasa = tasasCambio[moneda] || 1;
+  const precioConvertido = precioBaseEUR * tasa;
+
+  return new Intl.NumberFormat("es-ES", {
+    style: "currency",
+    currency: moneda
+  }).format(precioConvertido);
 }
