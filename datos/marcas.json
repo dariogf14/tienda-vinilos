@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "nombre": "Queen"
+  },
+  {
+    "id": 2,
+    "nombre": "Megadeth"
+  },
+  {
+    "id": 3,
+    "nombre": "Limp Bizkit"
+  },
+  {
+    "id": 4,
+    "nombre": "Linkin Park"
+  },
+  {
+    "id": 5,
+    "nombre": "Extremoduro"
+  },
+  {
+    "id": 6,
+    "nombre": "Fito y Fitipaldis"
+  },
+  {
+    "id": 7,
+    "nombre": "Arde Bogotá"
+  },
+  {
+    "id": 8,
+    "nombre": "Europe"
+  }
+]

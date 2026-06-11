@@ -1,0 +1,178 @@
+[
+  {
+    "id": 1,
+    "nombre": "A Night at the Opera",
+    "imagen": "a_night_at_the_opera.jpg",
+    "descripcion": "Álbum clásico de Queen publicado en 1975, considerado uno de los discos más importantes del rock.",
+    "precio": 32.99,
+    "stock": 8,
+    "marca_id": 1,
+    "categoria_id": 1,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1975",
+      "Estado": "Nuevo",
+      "Edición": "Reedición 180g"
+    }
+  },
+  {
+    "id": 2,
+    "nombre": "News of the World",
+    "imagen": "news_of_the_world.jpg",
+    "descripcion": "Disco de Queen publicado en 1977, con algunos de sus temas más conocidos.",
+    "precio": 29.99,
+    "stock": 6,
+    "marca_id": 1,
+    "categoria_id": 1,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1977",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 3,
+    "nombre": "Rust in Peace",
+    "imagen": "rust_in_peace.jpg",
+    "descripcion": "Álbum de Megadeth publicado en 1990, referente del thrash metal.",
+    "precio": 31.5,
+    "stock": 5,
+    "marca_id": 2,
+    "categoria_id": 3,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1990",
+      "Estado": "Nuevo",
+      "Edición": "Remasterizada"
+    }
+  },
+  {
+    "id": 4,
+    "nombre": "Countdown to Extinction",
+    "imagen": "countdown_to_extinction.jpg",
+    "descripcion": "Uno de los discos más conocidos de Megadeth, publicado en 1992.",
+    "precio": 28.95,
+    "stock": 4,
+    "marca_id": 2,
+    "categoria_id": 3,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1992",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 5,
+    "nombre": "Significant Other",
+    "imagen": "significant_other.jpg",
+    "descripcion": "Álbum de Limp Bizkit publicado en 1999, representativo del nu metal de finales de los noventa.",
+    "precio": 27.99,
+    "stock": 7,
+    "marca_id": 3,
+    "categoria_id": 4,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1999",
+      "Estado": "Nuevo",
+      "Edición": "Vinilo negro"
+    }
+  },
+  {
+    "id": 6,
+    "nombre": "Hybrid Theory",
+    "imagen": "hybrid_theory.jpg",
+    "descripcion": "Primer álbum de estudio de Linkin Park, publicado en el año 2000.",
+    "precio": 30.99,
+    "stock": 10,
+    "marca_id": 4,
+    "categoria_id": 4,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2000",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 7,
+    "nombre": "Meteora",
+    "imagen": "meteora.jpg",
+    "descripcion": "Segundo álbum de Linkin Park, publicado en 2003, con sonido característico de nu metal y rock alternativo.",
+    "precio": 29.5,
+    "stock": 0,
+    "marca_id": 4,
+    "categoria_id": 4,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2003",
+      "Estado": "Nuevo",
+      "Edición": "Limitada"
+    }
+  },
+  {
+    "id": 8,
+    "nombre": "Agila",
+    "imagen": "agila.jpg",
+    "descripcion": "Disco de Extremoduro publicado en 1996, una referencia del rock español.",
+    "precio": 26.99,
+    "stock": 3,
+    "marca_id": 5,
+    "categoria_id": 5,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1996",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  },
+  {
+    "id": 9,
+    "nombre": "Antes de que cuente diez",
+    "imagen": "antes_de_que_cuente_diez.jpg",
+    "descripcion": "Álbum de Fito y Fitipaldis publicado en 2009, dentro del rock español.",
+    "precio": 25.99,
+    "stock": 9,
+    "marca_id": 6,
+    "categoria_id": 5,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2009",
+      "Estado": "Nuevo",
+      "Edición": "Vinilo negro"
+    }
+  },
+  {
+    "id": 10,
+    "nombre": "La noche",
+    "imagen": "la_noche.jpg",
+    "descripcion": "Álbum de Arde Bogotá con sonido de rock alternativo e indie rock.",
+    "precio": 24.99,
+    "stock": 6,
+    "marca_id": 7,
+    "categoria_id": 6,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "2021",
+      "Estado": "Nuevo",
+      "Edición": "Estándar"
+    }
+  },
+  {
+    "id": 11,
+    "nombre": "The Final Countdown",
+    "imagen": "the_final_countdown.jpg",
+    "descripcion": "Álbum de Europe publicado en 1986, uno de los discos más conocidos del hard rock melódico.",
+    "precio": 28.99,
+    "stock": 5,
+    "marca_id": 8,
+    "categoria_id": 2,
+    "caracteristicas": {
+      "Formato": "LP",
+      "Año": "1986",
+      "Estado": "Nuevo",
+      "Edición": "Reedición"
+    }
+  }
+]

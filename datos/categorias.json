@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Rock"
+  },
+  {
+    "id": 2,
+    "nombre": "Hard Rock"
+  },
+  {
+    "id": 3,
+    "nombre": "Thrash Metal"
+  },
+  {
+    "id": 4,
+    "nombre": "Nu Metal"
+  },
+  {
+    "id": 5,
+    "nombre": "Rock Español"
+  },
+  {
+    "id": 6,
+    "nombre": "Indie Rock"
+  }
+]
