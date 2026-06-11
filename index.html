@@ -3,12 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Cara B</title>
+  <title>La Cara B | Tienda de Vinilos</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-  <h1>La Cara B</h1>
-  <p>Tienda online de vinilos</p>
+  <header class="header">
+    <div class="header__brand">
+      <h1>La Cara B</h1>
+      <p>Tienda online de vinilos</p>
+    </div>
+
+    <nav class="header__nav">
+      <div class="currency-selector">
+        <label for="moneda">Moneda</label>
+        <select id="moneda">
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+          <option value="GBP">GBP</option>
+        </select>
+      </div>
+
+      <button id="btnUsuario" class="btn btn--secondary" type="button">
+        Usuario
+      </button>
+
+      <button id="btnCarrito" class="btn btn--secondary" type="button" disabled>
+        Carrito
+        <span id="contadorCarrito" class="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <h2>Catálogo de vinilos</h2>
+      <p>
+        Descubre álbumes de rock, hard rock, thrash metal, nu metal,
+        rock español e indie rock.
+      </p>
+    </section>
+
+    <section class="filters" aria-label="Filtros de productos">
+      <div class="filter-group filter-group--search">
+        <label for="buscador">Buscar</label>
+        <input
+          type="text"
+          id="buscador"
+          placeholder="Buscar por título, artista, género..."
+        >
+      </div>
+
+      <div class="filter-group">
+        <label for="filtroCategoria">Género</label>
+        <select id="filtroCategoria">
+          <option value="">Todos los géneros</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filtroMarca">Artista</label>
+        <select id="filtroMarca">
+          <option value="">Todos los artistas</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="status-section">
+      <p id="mensajeEstado">Cargando productos...</p>
+    </section>
+
+    <section id="contenedorProductos" class="products-grid" aria-label="Listado de productos">
+    </section>
+  </main>
+
+  <!-- Modal de detalles del producto -->
+  <div id="modalDetalles" class="modal hidden">
+    <div class="modal__content">
+      <button class="modal__close" type="button" data-close="modalDetalles">
+        &times;
+      </button>
+
+      <div id="contenidoModalDetalles">
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de usuario -->
+  <div id="modalUsuario" class="modal hidden">
+    <div class="modal__content">
+      <button class="modal__close" type="button" data-close="modalUsuario">
+        &times;
+      </button>
+
+      <h2 id="tituloModalUsuario">Iniciar sesión</h2>
+
+      <form id="formLogin" class="form">
+        <div class="form__group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" required>
+        </div>
+
+        <div class="form__group">
+          <label for="loginPassword">Contraseña</label>
+          <input type="password" id="loginPassword" required>
+        </div>
+
+        <p id="mensajeLogin" class="form__message"></p>
+
+        <button class="btn" type="submit">Entrar</button>
+      </form>
+
+      <form id="formPerfil" class="form hidden">
+        <div class="form__group">
+          <label for="perfilNombre">Nombre</label>
+          <input type="text" id="perfilNombre" required>
+        </div>
+
+        <div class="form__group">
+          <label for="perfilApellidos">Apellidos</label>
+          <input type="text" id="perfilApellidos" required>
+        </div>
+
+        <div class="form__group">
+          <label for="perfilEmail">Email</label>
+          <input type="email" id="perfilEmail" required>
+        </div>
+
+        <div class="form__group">
+          <label for="perfilTelefono">Teléfono</label>
+          <input type="text" id="perfilTelefono" required>
+        </div>
+
+        <div class="form__group">
+          <label for="perfilCalle">Calle</label>
+          <input type="text" id="perfilCalle" required>
+        </div>
+
+        <div class="form__group">
+          <label for="perfilCiudad">Ciudad</label>
+          <input type="text" id="perfilCiudad" required>
+        </div>
+
+        <div class="form__group">
+          <label for="perfilCodigoPostal">Código postal</label>
+          <input type="text" id="perfilCodigoPostal" required>
+        </div>
+
+        <div class="form__group">
+          <label for="perfilPais">País</label>
+          <input type="text" id="perfilPais" required>
+        </div>
+
+        <p id="mensajePerfil" class="form__message"></p>
+
+        <button class="btn" type="submit">Guardar cambios</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de carrito -->
+  <div id="modalCarrito" class="modal hidden">
+    <div class="modal__content">
+      <button class="modal__close" type="button" data-close="modalCarrito">
+        &times;
+      </button>
+
+      <h2>Carrito de la compra</h2>
+
+      <div id="contenidoCarrito" class="cart-content">
+      </div>
+
+      <div class="cart-footer">
+        <p>
+          Total:
+          <strong id="totalCarrito">0.00 €</strong>
+        </p>
+
+        <button id="btnVaciarCarrito" class="btn btn--danger" type="button">
+          Vaciar carrito
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>La Cara B - Proyecto DWEC</p>
+  </footer>
 
   <script type="module" src="./js/app.js"></script>
 </body>
